@@ -8,8 +8,6 @@ pipeline:
   name: Echo Input
   identifier: Echo_Input
   tags: {}
-  projectIdentifier: ${var.project_id}
-  orgIdentifier: ${var.org_id}
   template:
     templateRef: Echo_Input_Pipeline
     versionLabel: 1.0.0
@@ -33,5 +31,7 @@ pipeline:
                                   - name: input
                                     type: String
                                     value: <+input>
+  projectIdentifier: ${var.project_id}
+  orgIdentifier: ${var.org_id}
 EOT
 }
