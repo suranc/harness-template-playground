@@ -1,7 +1,7 @@
 resource "harness_platform_pipeline" "echo_input" {
   identifier = "Echo_Input"
   org_id        = var.org_id
-  project_id    = var.project_id
+  project_id    = harness_platform_project.this.id
   name       = "Echo Input"
   yaml = <<-EOT
 pipeline:
@@ -9,7 +9,7 @@ pipeline:
   identifier: Echo_Input
   tags: {}
   template:
-    templateRef: Echo_Input_Pipeline
+    templateRef: ${harness_platform_template.echo_input_pipeline.id}
     versionLabel: 1.0.0
     templateInputs:
       stages:
@@ -31,7 +31,7 @@ pipeline:
                                   - name: input
                                     type: String
                                     value: <+input>
-  projectIdentifier: ${var.project_id}
+  projectIdentifier: ${harness_platform_project.this.id}
   orgIdentifier: ${var.org_id}
 EOT
 }
