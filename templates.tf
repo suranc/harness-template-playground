@@ -1,7 +1,7 @@
 resource "harness_platform_template" "echo_input_step" {
   identifier    = "Echo_Input"
   org_id        = var.org_id
-  project_id    = var.project_id
+  project_id    = harness_platform_project.this.id
   name          = "Echo Input"
   comments      = "comments"
   version       = "1.0.0"
@@ -37,7 +37,7 @@ resource "harness_platform_template" "echo_input_stage" {
   name          = "Echo Input Stage"
   identifier    = "Echo_Input_Stage"
   org_id        = var.org_id
-  project_id    = var.project_id
+  project_id    = harness_platform_project.this.id
   comments      = "comments"
   version       = "1.0.0"
   is_stable     = true
@@ -75,7 +75,7 @@ resource "harness_platform_template" "echo_input_pipeline" {
   name          = "Echo Input Pipeline"
   identifier    = "Echo_Input_Pipeline"
   org_id        = var.org_id
-  project_id    = var.project_id
+  project_id    = harness_platform_project.this.id
   comments      = "comments"
   version       = "1.0.0"
   is_stable     = true
