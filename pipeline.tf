@@ -10,7 +10,7 @@ pipeline:
   tags: {}
   template:
     templateRef: ${harness_platform_template.echo_input_pipeline.id}
-    versionLabel: 1.0.0
+    versionLabel: v1
     templateInputs:
       stages:
         - stage:

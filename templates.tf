@@ -4,13 +4,13 @@ resource "harness_platform_template" "echo_input_step" {
   project_id    = harness_platform_project.this.id
   name          = "Echo Input"
   comments      = "comments"
-  version       = "1.0.0"
+  version       = "v1"
   is_stable     = true
   template_yaml = <<-EOT
 template:
   name: Echo Input
   identifier: Echo_Input
-  versionLabel: 1.0.0
+  versionLabel: v1
   projectIdentifier: ${var.project_id}
   orgIdentifier: ${var.org_id}
   type: Step
@@ -39,13 +39,13 @@ resource "harness_platform_template" "echo_input_stage" {
   org_id        = var.org_id
   project_id    = harness_platform_project.this.id
   comments      = "comments"
-  version       = "1.0.0"
+  version       = "v1"
   is_stable     = true
   template_yaml = <<-EOT
 template:
   name: Echo Input Stage
   identifier: Echo_Input_Stage
-  versionLabel: 1.0.0
+  versionLabel: v1
   projectIdentifier: ${var.project_id}
   orgIdentifier: ${var.org_id}
   type: Stage
@@ -60,7 +60,7 @@ template:
               identifier: Echo_Input
               template:
                 templateRef: ${harness_platform_template.echo_input_step.id}
-                versionLabel: 1.0.0
+                versionLabel: v1
                 templateInputs:
                   type: ShellScript
                   spec:
@@ -77,13 +77,13 @@ resource "harness_platform_template" "echo_input_pipeline" {
   org_id        = var.org_id
   project_id    = harness_platform_project.this.id
   comments      = "comments"
-  version       = "1.0.0"
+  version       = "v1"
   is_stable     = true
   template_yaml = <<-EOT
 template:
   name: Echo Input Pipeline
   identifier: Echo_Input_Pipeline
-  versionLabel: 1.0.0
+  versionLabel: v1
   projectIdentifier: ${var.project_id}
   orgIdentifier: ${var.org_id}
   type: Pipeline
@@ -95,7 +95,7 @@ template:
           identifier: Echo_Input
           template:
             templateRef: ${harness_platform_template.echo_input_stage.id}
-            versionLabel: 1.0.0
+            versionLabel: v1
             templateInputs:
               type: Custom
               spec:
